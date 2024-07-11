@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户表
@@ -17,6 +18,7 @@ import lombok.Data;
  */
 @TableName(value = "user")
 @Data
+@NoArgsConstructor
 public class User implements Serializable {
     /**
      * id
@@ -80,4 +82,12 @@ public class User implements Serializable {
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+
+    public void setId(String id) {
+        this.id = Long.parseLong(id);
+    }
+
+    public void setId(Long id){
+        this.id = id;
+    }
 }

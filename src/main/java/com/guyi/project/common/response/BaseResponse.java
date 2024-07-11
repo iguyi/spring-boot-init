@@ -18,9 +18,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class BaseResponse<D> implements Serializable {
     /**
-     * 响应码
+     * 返回状态码
      */
-    @ApiModelProperty("响应码")
+    @ApiModelProperty("返回状态码")
     private int code;
 
     /**

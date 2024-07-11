@@ -25,7 +25,8 @@ public enum ReturnCode {
     /**
      * 系统内部问题
      */
-    SYSTEM_ERROR(50000, "系统内部异常");
+    SYSTEM_ERROR(50000, "系统内部异常"),
+    DB_SAVE_ERROR(50001, "数据保存失败");
 
     /**
      * 状态码

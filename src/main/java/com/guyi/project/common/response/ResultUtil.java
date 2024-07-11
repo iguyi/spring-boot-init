@@ -18,7 +18,7 @@ public class ResultUtil {
         return new BaseResponse<>(success.getCode(), data, success.getMessage());
     }
 
-    public static BaseResponse<?> error(int returnCode, String message) {
+    public static <T> BaseResponse<T> error(int returnCode, String message) {
         return new BaseResponse<>(returnCode, null, message);
     }
 
@@ -28,7 +28,7 @@ public class ResultUtil {
      * @param returnCode 返回码
      * @return 响应对象
      */
-    public static BaseResponse<?> error(ReturnCode returnCode) {
+    public static <T> BaseResponse<T> error(ReturnCode returnCode) {
         return new BaseResponse<>(returnCode.getCode(), null, returnCode.getMessage());
     }
 }

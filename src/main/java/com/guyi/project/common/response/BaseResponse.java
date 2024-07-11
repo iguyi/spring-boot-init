@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * 通用响应对象
  *
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BaseResponse<D> {
+public class BaseResponse<D> implements Serializable {
     /**
      * 响应码
      */
@@ -32,4 +34,6 @@ public class BaseResponse<D> {
      */
     @ApiModelProperty("响应信息")
     private String message;
+
+    private static final long serialVersionUID = 7830512838023729592L;
 }

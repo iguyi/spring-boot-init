@@ -113,7 +113,3 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return DigestUtils.md5DigestAsHex((projectProperties.getSalt() + password).getBytes());
     }
 }
-
-
-
-

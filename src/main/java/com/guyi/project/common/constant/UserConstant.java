@@ -48,4 +48,9 @@ public interface UserConstant {
             + USER_PASSWORD_MIN_LENGTH + "," + USER_PASSWORD_MAX_LENGTH + "}$";
 
     // endregion
+
+    /**
+     * 用户登录态属性 key
+     */
+    String USER_LOGIN_STATE = "userLoginState";
 }

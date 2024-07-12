@@ -17,9 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
-import static com.guyi.project.common.constant.UserConstant.*;
+import static com.guyi.project.common.constant.UserConstant.USER_ACCOUNT_RULE;
+import static com.guyi.project.common.constant.UserConstant.USER_PASSWORD_RULE;
 import static com.guyi.project.common.response.ReturnCode.DB_SAVE_ERROR;
 import static com.guyi.project.common.response.ReturnCode.PARAMS_ERROR;
 
@@ -52,6 +52,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         if (!userPassword.equals(registerRequest.getCheckPassword())) {
             throw new BusinessException(PARAMS_ERROR, "密码输入不一致");
+        }
+
+        // 检查账号是否存在
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper.eq("userAccount", userAccount);
+        long count = this.count(userQueryWrapper);
+        if (count > 0) {
+            throw new BusinessException(PARAMS_ERROR, "账号已存在");
         }
 
         // 保存数据

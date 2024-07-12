@@ -22,12 +22,10 @@ public class ResultUtil {
         return new BaseResponse<>(returnCode, null, message);
     }
 
-    /**
-     * 请求处理失败
-     *
-     * @param returnCode 返回码
-     * @return 响应对象
-     */
+    public static <T> BaseResponse<T> error(ReturnCode returnCode, String message) {
+        return new BaseResponse<>(returnCode.getCode(), null, message);
+    }
+
     public static <T> BaseResponse<T> error(ReturnCode returnCode) {
         return new BaseResponse<>(returnCode.getCode(), null, returnCode.getMessage());
     }

@@ -16,8 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import static com.guyi.project.common.constant.UserConstant.USER_LOGIN_STATE;
-import static com.guyi.project.common.response.ReturnCode.PARAMS_ERROR;
-import static com.guyi.project.common.response.ReturnCode.SYSTEM_ERROR;
+import static com.guyi.project.common.response.ReturnCode.*;
 
 /**
  * User 请求控制器
@@ -43,7 +42,6 @@ public class UserController {
         return ResultUtil.error(SYSTEM_ERROR);
     }
 
-
     @PostMapping("/login")
     @ApiOperation("用户登录")
     public BaseResponse<UserVO> login(@RequestBody UserLoginRequest loginRequest, HttpServletRequest request) {
@@ -53,6 +51,16 @@ public class UserController {
         }
         request.setAttribute(USER_LOGIN_STATE, loginRequest);
         return ResultUtil.ok(loginState);
+    }
+
+    @PostMapping("/current/state")
+    @ApiOperation("获取当前用户登录态")
+    public BaseResponse<UserVO> getCurrent(HttpServletRequest request) {
+        Object attribute = request.getAttribute(USER_LOGIN_STATE);
+        if (attribute == null) {
+            return ResultUtil.error(NOT_LOGIN_ERROR);
+        }
+        return ResultUtil.ok((UserVO) attribute);
     }
 
     // endregion

@@ -51,7 +51,7 @@ public class StringCheckUtil {
      * @param regex 字符串校验规则
      * @return 如果返回值为 true, 表示字符串【不符合】规则
      */
-    public static boolean notIsRegex(@NotNull String str, @NotNull String regex) {
+    public static boolean notMatch(@NotNull String str, @NotNull String regex) {
         return !isMatch(str, regex);
     }
 

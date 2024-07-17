@@ -42,12 +42,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         // 账号校验
         String userAccount = registerRequest.getUserAccount();
-        if (StringUtils.isBlank(userAccount) || StringCheckUtil.notIsRegex(userAccount, USER_ACCOUNT_RULE)) {
+        if (StringUtils.isBlank(userAccount) || StringCheckUtil.notMatch(userAccount, USER_ACCOUNT_RULE)) {
             throw new BusinessException(PARAMS_ERROR, "账号格式有误");
         }
         // 密码校验
         String userPassword = registerRequest.getUserPassword();
-        if (StringUtils.isBlank(userPassword) || StringCheckUtil.notIsRegex(userPassword, USER_PASSWORD_RULE)) {
+        if (StringUtils.isBlank(userPassword) || StringCheckUtil.notMatch(userPassword, USER_PASSWORD_RULE)) {
             throw new BusinessException(PARAMS_ERROR, "密码格式错误");
         }
         if (!userPassword.equals(registerRequest.getCheckPassword())) {
@@ -81,12 +81,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         // 账号、密码校验
         String userAccount = loginRequest.getUserAccount();
-        if (StringUtils.isBlank(userAccount) || StringCheckUtil.notIsRegex(userAccount, USER_ACCOUNT_RULE)) {
+        if (StringUtils.isBlank(userAccount) || StringCheckUtil.notMatch(userAccount, USER_ACCOUNT_RULE)) {
             throw new BusinessException(PARAMS_ERROR, "账号格式有误");
         }
         // 密码校验
         String userPassword = loginRequest.getUserPassword();
-        if (StringUtils.isBlank(userPassword) || StringCheckUtil.notIsRegex(userPassword, USER_PASSWORD_RULE)) {
+        if (StringUtils.isBlank(userPassword) || StringCheckUtil.notMatch(userPassword, USER_PASSWORD_RULE)) {
             throw new BusinessException(PARAMS_ERROR, "密码格式错误");
         }
 

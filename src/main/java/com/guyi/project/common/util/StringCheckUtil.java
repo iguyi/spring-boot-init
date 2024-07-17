@@ -1,7 +1,5 @@
 package com.guyi.project.common.util;
 
-import org.apache.commons.lang3.StringUtils;
-
 import javax.validation.constraints.NotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

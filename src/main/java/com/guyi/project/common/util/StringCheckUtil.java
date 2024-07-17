@@ -38,7 +38,7 @@ public class StringCheckUtil {
      * @param regex 字符串校验规则
      * @return 如果返回值为 true, 表示字符串【符合】规则
      */
-    public static boolean isRegex(@NotNull String str, @NotNull String regex) {
+    public static boolean isMatch(@NotNull String str, @NotNull String regex) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
         return matcher.find();
@@ -52,7 +52,7 @@ public class StringCheckUtil {
      * @return 如果返回值为 true, 表示字符串【不符合】规则
      */
     public static boolean notIsRegex(@NotNull String str, @NotNull String regex) {
-        return !isRegex(str, regex);
+        return !isMatch(str, regex);
     }
 
     /**

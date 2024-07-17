@@ -32,6 +32,15 @@ public class StringCheckUtil {
     public static final String PASSWORD_REGEX = "^[0-9a-zA-Z!@#$%^&*()\\-_=+|\\\\:;\\\"'<>,~·`.?/\\{\\[\\}\\]]+$";
 
     /**
+     * 匹配只包含空白字符的字符串的正则表达式, 空白字符如下: <br/>
+     * - 空格 <br/>
+     * - 制表符 <br/>
+     * - 换行符 <br/>
+     * - 其他不可见字符
+     */
+    public static final String BLANK_REGEX = "^\\s+$";
+
+    /**
      * 校验字符串格式是否【符合】正则表达式
      *
      * @param str   需要校验的字符串

@@ -11,6 +11,27 @@ import java.util.regex.Pattern;
  */
 public class StringCheckUtil {
     /**
+     * 匹配自然数的正则表达式
+     */
+    public static final String NUMBER_REGEX = "^-?\\d+$";
+
+    /**
+     * 匹配只包含字母的字符串的正则表达式
+     */
+    public static final String LETTER_REGEX = "^[a-zA-Z]+$";
+
+    /**
+     * 匹配只包含数字、字母、下划线的字符串的正则表达式
+     */
+    public static final String LETTER_NUMBER_REGEX = "^[0-9a-zA-Z_]+$";
+
+    /**
+     * 匹配合法密码的字符串的正则表达式 <br/>
+     * 可以包含: 数字、字母、`~·!@$%^&*()_-+=[]{}|\:;"'><,.?/
+     */
+    public static final String PASSWORD_REGEX = "^[0-9a-zA-Z!@#$%^&*()\\-_=+|\\\\:;\\\"'<>,~·`.?/\\{\\[\\}\\]]+$";
+
+    /**
      * 校验字符串格式是否【符合】正则表达式
      *
      * @param str   需要校验的字符串

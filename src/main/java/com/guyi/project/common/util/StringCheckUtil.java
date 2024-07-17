@@ -1,5 +1,7 @@
 package com.guyi.project.common.util;
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.validation.constraints.NotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -81,5 +83,20 @@ public class StringCheckUtil {
      */
     public static boolean lengthNotValid(@NotNull String str, int minLength, int maxLength) {
         return !lengthValid(str, minLength, maxLength);
+    }
+
+    /**
+     * 判断字符串是否只包含空白字符, 空白字符如下: <br/>
+     * - null
+     * - 空格 <br/>
+     * - 制表符 <br/>
+     * - 换行符 <br/>
+     * - 其他不可见字符
+     */
+    public static boolean isBlank(String str) {
+        if (str == null || "".equals(str)) {
+            return true;
+        }
+        return isMatch(str, BLANK_REGEX);
     }
 }

@@ -32,6 +32,11 @@ public class StringCheckUtil {
     public static final String PASSWORD_REGEX = "^[0-9a-zA-Z!@#$%^&*()\\-_=+|\\\\:;\\\"'<>,~·`.?/\\{\\[\\}\\]]+$";
 
     /**
+     * 邮箱地址校验
+     */
+    public static final String EMAIL_REGEX = "^[0-9a-zA-Z_-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+    /**
      * 匹配只包含空白字符的字符串的正则表达式, 空白字符如下: <br/>
      * - 空格 <br/>
      * - 制表符 <br/>
